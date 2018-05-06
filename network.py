@@ -67,12 +67,7 @@ def create_graph():
 
     arq = open("files/higgs-reply_network.edgelist", 'r')
     edges = arq.readlines()
-    total = len(edges)
-    i = 0
     for line in edges:
-        if i % 10000 == 0:
-            print("REPLY: {} de {}".format(i, total))
-        i += 1
         a, b, qt = map(int, line.split())
         if a in network[b][1]:
             network[b][10] += qt
