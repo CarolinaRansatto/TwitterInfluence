@@ -1,3 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 network.zip
 /files/
+.idea/TwitterInfluence.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+__pycache__/
+venv/include/
