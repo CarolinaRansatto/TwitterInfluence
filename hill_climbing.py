@@ -3,27 +3,56 @@ import random
 def find_k(network,k,heuristic):
     found = list()
     for _ in range(k):
-        pos = [random.choice(list(network.keys()))]
-        res = hill_climbing(network,pos[0],found,heuristic,0)
+        pos = random.choice(list(network.keys()))
+        res = hill_climbing(network,pos,found,heuristic)
         if (res!=-1):
             found.append(res)
         else:
             print("deu erro, jesus")
+    #
+    for x in range(len(found)):
+        print("{} com valor: {}".format(found[x],heuristic(network[found[x]])))
+    print()
+    #
+    menor = float('inf')
+    v_menor = -1
+    for x in range(len(found)):
+        if (heuristic(network[found[x]]) < menor):
+            menor = heuristic(network[found[x]])
+            v_menor = x
+    #
+    print(v_menor)
+    #
+    for _ in range(2*k):
+        pos = random.choice(list(network.keys()))
+        res = hill_climbing(network,pos,found,heuristic,mini=menor)
+        if (heuristic(network[res])>menor):
+            found.pop(v_menor)
+            found.append(res)
+            menor = float('inf')
+            for x in range(len(found)):
+                if (heuristic(network[found[x]]) < menor):
+                    menor = heuristic(network[found[x]])
+                    v_menor = x
+
     return found
 
-def hill_climbing(network,pos,found,heuristic,depth):
-    if (depth == 0):
-        n_id,node = pos,network[pos]
-        cur = heuristic(node)
-        id_max = -1
-        for x in range(len(node[0])):
-            n_node = network[node[0][x]]
-            h_node = heuristic(n_node)
-            if ((h_node >= cur) and (node[0][x] not in found)):
-                n_max = h_node
-                id_max = x
-        if (id_max!=-1):
-            return hill_climbing(network,node[0][id_max],found,heuristic,depth)
-        return pos
-    else:
-        pass
+def hill_climbing(network,pos,found,heuristic,mini=0,depth=0):
+    node = network[pos]
+    cur = heuristic(node)
+    id_max = pos
+
+    for x in range(len(node[0])):
+        n_node = network[node[0][x]]
+        h_node = heuristic(n_node)
+        if ((h_node > cur) and (node[0][x] not in found) and (h_node > mini)):
+            n_max = h_node
+            id_max = node[0][x]
+
+    if (depth==10):
+        return id_max
+
+    if (id_max!=pos):
+        return hill_climbing(network,id_max,found,heuristic)
+
+    return pos

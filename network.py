@@ -17,7 +17,9 @@ Cada nó terá os seguintes atributos:
     [9] Quantidade de pessoas que o retweetaram, mas não são seus seguidores
     [10] Quantidade de respostas de seguidores
     [11] Quantidade de respostas de não seguidores
-    [12] Quantidade de pessoas que o responderam e são seus seguidores
+    [12] Quantidade de pessoas que o responderam e são seu
+
+    s seguidores
     [13] Quantidade de pessoas que o responderam, mas não são seus seguidores
 Formato do nó: network[nó] = [[], [], 0,0,0,0,0,0,0,0,0]
 '''
