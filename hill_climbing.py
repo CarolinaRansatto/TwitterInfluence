@@ -20,9 +20,7 @@ def find_k(network,k,heuristic):
         if (heuristic(network[found[x]]) < menor):
             menor = heuristic(network[found[x]])
             v_menor = x
-    #
-    print(v_menor)
-    #
+
     for _ in range(2*k):
         pos = random.choice(list(network.keys()))
         res = hill_climbing(network,pos,found,heuristic,mini=menor)
@@ -39,13 +37,13 @@ def find_k(network,k,heuristic):
 
 def hill_climbing(network,pos,found,heuristic,mini=0,depth=0):
     node = network[pos]
-    cur = heuristic(node)
+    n_max = heuristic(node)
     id_max = pos
 
     for x in range(len(node[0])):
         n_node = network[node[0][x]]
         h_node = heuristic(n_node)
-        if ((h_node > cur) and (node[0][x] not in found) and (h_node > mini)):
+        if ((h_node > n_max) and (node[0][x] not in found) and (h_node > mini)):
             n_max = h_node
             id_max = node[0][x]
 
