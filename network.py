@@ -17,10 +17,9 @@ Cada nó terá os seguintes atributos:
     [9] Quantidade de pessoas que o retweetaram, mas não são seus seguidores
     [10] Quantidade de respostas de seguidores
     [11] Quantidade de respostas de não seguidores
-    [12] Quantidade de pessoas que o responderam e são seu
-
-    s seguidores
+    [12] Quantidade de pessoas que o responderam e são seus seguidores
     [13] Quantidade de pessoas que o responderam, mas não são seus seguidores
+    [14] Inteiro auxiliar para buscas
 Formato do nó: network[nó] = [[], [], 0,0,0,0,0,0,0,0,0]
 '''
 
@@ -36,9 +35,9 @@ def create_graph():
     for line in edges:
         a, b = map(int, line.split())
         if a not in network:
-            network[a] = [[], [], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            network[a] = [[], [], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         if b not in network:
-            network[b] = [[], [], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            network[b] = [[], [], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         network[a][0].append(b)
         network[b][1].append(a)
     arq.close()

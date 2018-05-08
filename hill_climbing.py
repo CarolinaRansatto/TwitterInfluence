@@ -10,9 +10,9 @@ def find_k(network,k,heuristic):
         else:
             print("deu erro, jesus")
     #
-    for x in range(len(found)):
-        print("{} com valor: {}".format(found[x],heuristic(network[found[x]])))
-    print()
+    #for x in range(len(found)):
+    #    print("{} com valor: {}".format(found[x],heuristic(network[found[x]])))
+    #print()
     #
     menor = float('inf')
     v_menor = -1
@@ -20,7 +20,6 @@ def find_k(network,k,heuristic):
         if (heuristic(network[found[x]]) < menor):
             menor = heuristic(network[found[x]])
             v_menor = x
-
     for _ in range(2*k):
         pos = random.choice(list(network.keys()))
         res = hill_climbing(network,pos,found,heuristic,mini=menor)
@@ -32,7 +31,6 @@ def find_k(network,k,heuristic):
                 if (heuristic(network[found[x]]) < menor):
                     menor = heuristic(network[found[x]])
                     v_menor = x
-
     return found
 
 def hill_climbing(network,pos,found,heuristic,mini=0,depth=0):
