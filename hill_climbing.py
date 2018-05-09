@@ -9,11 +9,7 @@ def find_k(network,k,heuristic):
             found.append(res)
         else:
             print("deu erro, jesus")
-    #
-    #for x in range(len(found)):
-    #    print("{} com valor: {}".format(found[x],heuristic(network[found[x]])))
-    #print()
-    #
+
     menor = float('inf')
     v_menor = -1
     for x in range(len(found)):

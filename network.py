@@ -20,7 +20,7 @@ Cada nó terá os seguintes atributos:
     [12] Quantidade de pessoas que o responderam e são seus seguidores
     [13] Quantidade de pessoas que o responderam, mas não são seus seguidores
     [14] Inteiro auxiliar para buscas
-Formato do nó: network[nó] = [[], [], 0,0,0,0,0,0,0,0,0]
+Formato do nó: network[nó] = [[], [], 0,0,0,0,0,0,0,0,0,0,0,0,0]
 '''
 
 

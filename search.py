@@ -1,6 +1,7 @@
 def search(network,nodes,k):
     influence = []
     for n in nodes:
+        print("Verificando popularidade do no {}...".format(n))
         influence.append(count_influence(network,n,k))
     return influence
 
