@@ -24,11 +24,11 @@ Formato do nó: network[nó] = [[], [], 0,0,0,0,0,0,0,0,0,0,0,0,0]
 '''
 
 
-def load_network():
+def load_network():        #carrega na memoria o grafo
     return pickle.load(open('files/network.graph', 'rb'))
 
 
-def create_graph():
+def create_graph():       #funcao que cria o grafo caso ele nao tenha sido criado ainda
     arq = open("files/higgs-social_network.edgelist", 'r')
     network = {}
     edges = arq.readlines()
